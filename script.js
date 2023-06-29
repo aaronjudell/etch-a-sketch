@@ -8,7 +8,8 @@ function makeGrid(length) {
         div.style.flexBasis = `${100 / length}%`;
         div.style.border = '1px solid black';
         div.style.boxSizing = 'border-box';
-        div.onmouseover = function() {
+        div.style.backgroundColor = 'white';
+        div.onmouseenter = function() {
             darken(div);
         };
         container.appendChild(div);
@@ -16,7 +17,34 @@ function makeGrid(length) {
 }
 
 function darken(element) {
-    element.style.backgroundColor = 'black';
+    const background = element.style.backgroundColor;
+    switch (background) {
+        case 'white':
+            element.style.backgroundColor = 'lightgray';
+            break;
+        case 'lightgray':
+            element.style.backgroundColor = 'silver';
+            break;
+        case 'silver':
+            element.style.backgroundColor = 'gray';
+            break;
+        case 'gray':
+            element.style.backgroundColor = 'dimgray';
+            break;
+        case 'dimgray':
+            element.style.backgroundColor = 'black';
+            break;
+        default:
+            break;
+    }
+/*    
+    if (element.style.backgroundColor === 'black') {
+        element.style.backgroundColor = 'white';
+    }
+    else {
+        element.style.backgroundColor = 'black';
+    }
+    */
 }
 
 function changeWidth(num) {
