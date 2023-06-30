@@ -2,6 +2,7 @@ let width = 16;
 const container = document.getElementById('container');
 
 function makeGrid(length) {
+    container.innerHTML = '';
     let total = length**2;
     for (let i = 0; i < total; i++) {
         const div = document.createElement('div');
@@ -37,18 +38,18 @@ function darken(element) {
         default:
             break;
     }
-/*    
-    if (element.style.backgroundColor === 'black') {
-        element.style.backgroundColor = 'white';
-    }
-    else {
-        element.style.backgroundColor = 'black';
-    }
-    */
-}
 
-function changeWidth(num) {
-    width = num;
 }
 
 makeGrid(width);
+
+const button = document.getElementById('button1');
+button.addEventListener('click', () => {
+    let newWidth = prompt('How wide do you want the Etch-a-Sketch? (100 max)');
+    newWidth = parseInt(newWidth);
+    while (!(newWidth >= 0 && newWidth <= 100)) {
+        newWidth = prompt('Please re-enter width of Etch-a-Sketch. (Must be less than 100)');
+        newWidth = parseInt(newWidth);
+    }
+    makeGrid(newWidth);
+});
