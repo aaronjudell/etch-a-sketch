@@ -45,10 +45,10 @@ makeGrid(width);
 
 const button = document.getElementById('button1');
 button.addEventListener('click', () => {
-    let newWidth = prompt('How wide do you want the Etch-a-Sketch? (100 max)');
+    let newWidth = prompt('How many boxes wide do you want the Etch-a-Sketch? (100 max)');
     newWidth = parseInt(newWidth);
     while (!(newWidth >= 0 && newWidth <= 100)) {
-        newWidth = prompt('Please re-enter width of Etch-a-Sketch. (Must be less than 100)');
+        newWidth = prompt('Please re-enter the number of boxes wide. (Must be less than 100)');
         newWidth = parseInt(newWidth);
     }
     makeGrid(newWidth);
